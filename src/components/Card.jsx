@@ -1,20 +1,18 @@
 import React from "react";
 import CardComponent from "./CardComponent";
 
-const Card = () => {
+const Card = ({ tasks }) => {
   return (
-    <div className="flex flex-wrap m-5">
-      <h1 className="text-3xl tracking-tighter font-bold m-10">
-        Incomplete Tasks
-      </h1>
-      <div className="flex flex-wrap m-5 mt-0">
-        <CardComponent />
-        <CardComponent />
-        <CardComponent />
-        <CardComponent />
-        <CardComponent />
-        <CardComponent />
-        <CardComponent />
+    <div className="flex flex-col flex-wrap m-5">
+      <div className="">
+        <h1 className="flex text-3xl tracking-tighter font-bold m-10">
+          Incomplete Tasks
+        </h1>
+        <div className="flex flex-wrap m-5 mt-0">
+          {tasks.map((t, i) => (
+            <CardComponent key={i} id={t.id} task={t.text} />
+          ))}
+        </div>
       </div>
       <div className="m-10">
         <h1 className="text-3xl tracking-tighter font-bold">Completed Tasks</h1>

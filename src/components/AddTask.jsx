@@ -1,29 +1,29 @@
 import { PlusIcon } from "lucide-react";
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 
-const AddTask = () => {
-  const [task, setTask] = useState([]);
-  const handleAdd = () => {
-    const content = task;
+const AddTask = ({ onAdd }) => {
+  const [text, setText] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onAdd(text);
+    setText("");
   };
   return (
     <div className="flex m-10">
-      <div className="flex items-center rounded-md p-2 bg-zinc-700/50 border border-zinc-400/40">
+      <form
+        className="flex items-center rounded-md p-2 bg-zinc-700/50 border border-zinc-400/40"
+        onSubmit={handleSubmit}>
         <input
+          value={text}
+          onChange={(e) => setText(e.target.value)}
           className="rounded-md p-2 text-xl bg-transparent focus-within:outline-none"
           placeholder="Add a task"
-          onChange={(e) => {
-            setTask(e.target.value);
-          }}
         />
-        <PlusIcon
-          className="mr-2 cursor-pointer"
-          onClick={() => {
-            handleAdd();
-          }}
-        />
-      </div>
+        <button type="submit">
+          <PlusIcon className="mr-2 cursor-pointer" />
+        </button>
+      </form>
     </div>
   );
 };
