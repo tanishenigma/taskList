@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import AddTask from "./components/AddTask";
-import Card from "./components/Card";
+import TodoList from "./components/TodoList";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
@@ -13,13 +13,13 @@ const App = () => {
   };
 
   const onRemove = (id) => {
-    const updatedTasks = tasks.filter((task) => task.id !== id);
-    setTasks(updatedTasks);
+    setTasks((prevTasks) => prevTasks.filter((task) => task.id !== id));
   };
+
   return (
     <div>
       <AddTask onAdd={onAdd} />
-      <Card tasks={tasks} onRemove={onRemove} />
+      <TodoList tasks={tasks} onRemove={onRemove} />
     </div>
   );
 };
