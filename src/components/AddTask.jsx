@@ -1,4 +1,4 @@
-import { BanIcon, PlusIcon, StopCircle } from "lucide-react";
+import { PlusIcon } from "lucide-react";
 import React, { useState } from "react";
 
 const AddTask = ({ onAdd }) => {
@@ -12,7 +12,7 @@ const AddTask = ({ onAdd }) => {
   return (
     <div className="flex m-10">
       <form
-        className="flex items-center rounded-md p-2 bg-zinc-700/50 border border-zinc-400/40"
+        className="flex items-center rounded-xl p-2 bg-zinc-700/50 border border-zinc-400/40"
         onSubmit={handleSubmit}>
         <input
           value={text}

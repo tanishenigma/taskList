@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import AddTask from "./components/AddTask";
 import TodoList from "./components/TodoList";
+import { Toaster } from "@/components/ui/sonner";
 
 const App = () => {
   const [tasks, setTasks] = useState([]);
