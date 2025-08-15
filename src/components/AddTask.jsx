@@ -1,4 +1,4 @@
-import { PlusIcon } from "lucide-react";
+import { BanIcon, PlusIcon, StopCircle } from "lucide-react";
 import React, { useState } from "react";
 
 const AddTask = ({ onAdd }) => {
@@ -20,9 +20,13 @@ const AddTask = ({ onAdd }) => {
           className="rounded-md p-2 text-xl bg-transparent focus-within:outline-none"
           placeholder="Add a task"
         />
-        <button type="submit">
-          <PlusIcon className="mr-2 cursor-pointer" />
-        </button>
+        {text ? (
+          <button type="submit">
+            <PlusIcon className="mr-2 cursor-pointer" />
+          </button>
+        ) : (
+          <PlusIcon className="mr-2 cursor-not-allowed text-zinc-600"></PlusIcon>
+        )}
       </form>
     </div>
   );

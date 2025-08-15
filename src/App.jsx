@@ -11,10 +11,15 @@ const App = () => {
     };
     setTasks((prevTask) => [...prevTask, newTask]);
   };
+
+  const onRemove = (id) => {
+    const updatedTasks = tasks.filter((task) => task.id !== id);
+    setTasks(updatedTasks);
+  };
   return (
     <div>
       <AddTask onAdd={onAdd} />
-      <Card tasks={tasks} />
+      <Card tasks={tasks} onRemove={onRemove} />
     </div>
   );
 };
